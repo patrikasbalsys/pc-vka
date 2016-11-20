@@ -1,0 +1,89 @@
+{%  extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2>PCs</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Model</th>
+            <th>Processor</th>
+            <th>Ram (GB)</th>
+            <th>Graphics</th>
+            <th>Disk Space (GB)</th>
+            <th>System</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pc in pcs %}
+            <tr>
+                <td>{{ pc.model }}</td>
+                <td>{{ pc.processor }}</td>
+                <td>{{ pc.ram }}</td>
+                <td>{{ pc.graphicsCard }}</td>
+                <td>{{ pc.diskSpace }}</td>
+                <td>{{ pc.system }}</td>
+                <td>
+                    <a href="{{ path("delete_pc", {pc: pc.id}) }}">DELETE</a>
+                    <a href="{{ path("pc_edit", {pc: pc.id}) }}">EDIT</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('pc_new') }}">New PC</a>
+
+    <h2>Processors</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Model</th>
+            <th>Manufacturer</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for processor in processors %}
+            <tr>
+                <td>{{ processor.processorModel }}</td>
+                <td>{{ processor.manufacturer }}</td>
+                <td>
+                    <a href="{{ path("delete_processor", {processor: processor.id}) }}">DELETE</a>
+                    <a href="{{ path("processor_edit", {processor: processor.id}) }}">EDIT</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('processor_new') }}">New Processor</a>
+
+    <h2>Graphics Cards</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Model</th>
+            <th>Manufacturer</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for graphicsCard in graphicsCards %}
+            <tr>
+                <td>{{ graphicsCard.graphicsCardModel }}</td>
+                <td>{{ graphicsCard.manufacturer }}</td>
+                <td>
+                    <a href="{{ path("delete_graphicsCard", {graphicsCard: graphicsCard.id}) }}">DELETE</a>
+                    <a href="{{ path("graphicsCard_edit", {graphicsCard: graphicsCard.id}) }}">EDIT</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('graphicsCard_new') }}">New Graphics Card</a>
+
+
+{% endblock %}

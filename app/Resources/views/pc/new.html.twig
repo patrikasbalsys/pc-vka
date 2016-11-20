@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ quote }}</h1>
+    <p>
+        {{ subQuote }}
+    </p>
+
+    {{ form_start(form) }}
+    {{ form_row(form.model) }}
+    {{ form_row(form.processor) }}
+    {{ form_row(form.ram) }}
+    {{ form_row(form.graphicsCard) }}
+    {{ form_row(form.diskSpace) }}
+    {{ form_row(form.system) }}
+
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    {{ form_end(form) }}
+
+    <br>
+    <a href="{{ path('pc_list') }}">Back to List</a>
+
+{% endblock %}

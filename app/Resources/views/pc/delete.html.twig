@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2>Do you really want to delete this?</h2><br>
+    <b>Pc model: {{ pc.model }}</b>
+    <br><br>
+
+    {{ form_start(form) }}
+    <button type="submit" class="btn btn-primary">Delete</button>
+    {{ form_end(form) }}
+    <br>
+
+    <a href="{{ path("pc_list") }}">Back to List</a>
+
+{% endblock %}
+
+
+
